@@ -24,7 +24,7 @@ const Home = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl">Welcome back, {user?.name}! 👋</CardTitle>
+            <CardTitle className="text-2xl">Welcome back, {user?.name}! </CardTitle>
             <CardDescription>
               You're logged in as {user?.email}
             </CardDescription>
