@@ -11,7 +11,7 @@ A full-stack web application for journaling and mood tracking with beautiful 3D 
 - ** Mood Psychology Colors**: Calming color palette based on psychological research
 - ** Secure Authentication**: JWT-based authentication with HTTP-only cookies
 - ** Responsive Design**: Fully responsive across all devices
-- **⚡ Real-time Updates**: Live mood tracking and instant feedback
+- ** Real-time Updates**: Live mood tracking and instant feedback
 
 ## Tech Stack
 
