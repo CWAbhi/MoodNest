@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 min-h-screen font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl shadow-xl;
+  }
+  
+  .mood-card {
+    @apply glass-card p-6 hover:bg-white/30 transition-all duration-300 cursor-pointer transform hover:scale-105;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-calm-blue to-soft-purple text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply glass-card px-6 py-3 rounded-xl font-medium hover:bg-white/30 transition-all duration-300;
+  }
+  
+  .input-field {
+    @apply glass-card px-4 py-3 rounded-xl border-0 focus:ring-2 focus:ring-calm-blue/50 focus:outline-none placeholder-gray-500 transition-all duration-300;
+  }
+  
+  .floating-orb {
+    @apply absolute rounded-full animate-float opacity-60;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-deep-navy via-calm-blue to-soft-purple bg-clip-text text-transparent;
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 30px rgba(164, 194, 244, 0.3);
+  }
+}
