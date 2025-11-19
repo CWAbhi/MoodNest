@@ -2,7 +2,7 @@
 
 A full-stack web application for journaling and mood tracking with beautiful 3D animations and mood-psychology-based design.
 
-## ✨ Features
+##  Features
 
 - ** Mood Tracking**: Track emotions with beautiful visualizations and gain insights into mental patterns
 - ** Digital Journaling**: Express thoughts in a secure, private space designed for reflection and growth
@@ -13,7 +13,7 @@ A full-stack web application for journaling and mood tracking with beautiful 3D 
 - ** Responsive Design**: Fully responsive across all devices
 - **⚡ Real-time Updates**: Live mood tracking and instant feedback
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React.js** - Modern UI library
@@ -160,10 +160,6 @@ moodnest/
 2. Copy the PostgreSQL connection string
 3. Update `DATABASE_URL` in your environment variables
 4. Run `npx prisma db push` to create tables
-
-## 📞 Support
-
-If you have any questions or need help, please open an issue or contact us at support@moodnest.app
 
 ---
 
