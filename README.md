@@ -155,12 +155,6 @@ moodnest/
 3. Set environment variables in Render dashboard
 4. Deploy automatically on push to main branch
 
-### Database (Supabase)
-1. Create a new Supabase project
-2. Copy the PostgreSQL connection string
-3. Update `DATABASE_URL` in your environment variables
-4. Run `npx prisma db push` to create tables
-
 ---
 
 **Made with ❤️ for mental wellness and self-reflection**
