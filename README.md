@@ -2,6 +2,11 @@
 
 A full-stack web application for journaling and mood tracking with beautiful 3D animations and mood-psychology-based design.
 
+# To checkout the website go throught the following links --
+Frontend - `https://mood-nest-three.vercel.app/`
+
+Backend - `https://moodnest-fq81.onrender.com`
+
 ##  Features
 
 - ** Mood Tracking**: Track emotions with beautiful visualizations and gain insights into mental patterns
