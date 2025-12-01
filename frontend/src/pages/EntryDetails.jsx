@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import axios from 'axios'
+import api from '../utils/api'
 import { useMood } from '../context/MoodContext'
 import Scene3D from '../three/Scene3D'
 import { format } from 'date-fns'
@@ -22,9 +22,7 @@ const EntryDetails = () => {
 
   const fetchEntry = async () => {
     try {
-      const response = await axios.get(`/api/entries/${id}`, {
-        withCredentials: true
-      })
+      const response = await api.get(`/entries/${id}`)
       setEntry(response.data.entry)
       setEditData(response.data.entry)
     } catch (error) {
@@ -37,9 +35,7 @@ const EntryDetails = () => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this entry?')) {
       try {
-        await axios.delete(`/api/entries/${id}`, {
-          withCredentials: true
-        })
+        await api.delete(`/entries/${id}`)
         navigate('/dashboard')
       } catch (error) {
         setError('Failed to delete entry')
@@ -49,9 +45,7 @@ const EntryDetails = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(`/api/entries/${id}`, editData, {
-        withCredentials: true
-      })
+      const response = await api.put(`/entries/${id}`, editData)
       setEntry(response.data.entry)
       setIsEditing(false)
     } catch (error) {

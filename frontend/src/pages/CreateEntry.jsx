@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import axios from 'axios'
+import api from '../utils/api'
 import MoodSelector from '../components/MoodSelector'
 import Scene3D from '../three/Scene3D'
 
@@ -64,9 +64,7 @@ const CreateEntry = () => {
     setLoading(true)
 
     try {
-      await axios.post('/api/entries', formData, {
-        withCredentials: true
-      })
+      await api.post('/entries', formData)
       navigate('/dashboard')
     } catch (error) {
       setError(error.response?.data?.message || 'Failed to create entry')

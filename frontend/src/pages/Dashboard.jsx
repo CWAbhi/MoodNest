@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import axios from 'axios'
+import api from '../utils/api'
 import { useAuth } from '../context/AuthContext'
 import { useMood } from '../context/MoodContext'
 import Scene3D from '../three/Scene3D'
@@ -26,8 +26,8 @@ const Dashboard = () => {
   const fetchDashboardData = async () => {
     try {
       const [entriesRes, moodsRes] = await Promise.all([
-        axios.get('/api/entries?limit=5', { withCredentials: true }),
-        axios.get('/api/mood?limit=5', { withCredentials: true })
+        api.get('/entries?limit=5'),
+        api.get('/mood?limit=5')
       ])
       
       setEntries(entriesRes.data.entries)

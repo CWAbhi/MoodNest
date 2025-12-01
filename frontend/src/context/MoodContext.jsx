@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react'
-import axios from 'axios'
+import api from '../utils/api'
 
 const MoodContext = createContext()
 
@@ -41,9 +41,7 @@ export const MoodProvider = ({ children }) => {
   const logMood = async (moodData) => {
     try {
       setLoading(true)
-      const response = await axios.post('/api/mood', moodData, {
-        withCredentials: true
-      })
+      const response = await api.post('/mood', moodData)
       setMoods(prev => [response.data.mood, ...prev])
       return { success: true }
     } catch (error) {
@@ -59,9 +57,7 @@ export const MoodProvider = ({ children }) => {
   const getMoods = async () => {
     try {
       setLoading(true)
-      const response = await axios.get('/api/mood', {
-        withCredentials: true
-      })
+      const response = await api.get('/mood')
       setMoods(response.data.moods)
     } catch (error) {
       console.error('Failed to fetch moods:', error)
@@ -72,9 +68,7 @@ export const MoodProvider = ({ children }) => {
 
   const getMoodSummary = async () => {
     try {
-      const response = await axios.get('/api/mood/summary', {
-        withCredentials: true
-      })
+      const response = await api.get('/mood/summary')
       return response.data
     } catch (error) {
       console.error('Failed to fetch mood summary:', error)

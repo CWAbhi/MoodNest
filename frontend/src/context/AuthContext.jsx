@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../utils/api'
 
 const AuthContext = createContext()
 
@@ -21,9 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     try {
-      const response = await axios.get('/api/auth/me', {
-        withCredentials: true
-      })
+      const response = await api.get('/auth/me')
       setUser(response.data.user)
     } catch (error) {
       setUser(null)
@@ -34,11 +32,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('/api/auth/login', {
+      const response = await api.post('/auth/login', {
         email,
         password
-      }, {
-        withCredentials: true
       })
       setUser(response.data.user)
       return { success: true }
@@ -52,9 +48,7 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (userData) => {
     try {
-      const response = await axios.post('/api/auth/signup', userData, {
-        withCredentials: true
-      })
+      const response = await api.post('/auth/signup', userData)
       setUser(response.data.user)
       return { success: true }
     } catch (error) {
@@ -67,9 +61,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post('/api/auth/logout', {}, {
-        withCredentials: true
-      })
+      await api.post('/auth/logout', {})
       setUser(null)
     } catch (error) {
       console.error('Logout error:', error)

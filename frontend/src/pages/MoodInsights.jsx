@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import axios from 'axios'
+import api from '../utils/api'
 import { useMood } from '../context/MoodContext'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar } from 'recharts'
 import { format, subDays } from 'date-fns'
@@ -18,9 +18,7 @@ const MoodInsights = () => {
   const fetchMoodSummary = async () => {
     try {
       setLoading(true)
-      const response = await axios.get(`/api/mood/summary?days=${timeRange}`, {
-        withCredentials: true
-      })
+      const response = await api.get(`/mood/summary?days=${timeRange}`)
       setSummary(response.data)
     } catch (error) {
       console.error('Failed to fetch mood summary:', error)
