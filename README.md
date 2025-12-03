@@ -1,166 +1,131 @@
 # MoodNest - Digital Journal & Mood Tracker
 
-A full-stack web application for journaling and mood tracking with beautiful 3D animations and mood-psychology-based design.
+# The Hosted Links are as follows;
+`Frontend --"https://mood-tracker-i0u77rztu-cwabhis-projects.vercel.app"`
 
-##  Features
+`Backend --"https://mood-nest.onrender.com"`
 
-- ** Mood Tracking**: Track emotions with beautiful visualizations and gain insights into mental patterns
-- ** Digital Journaling**: Express thoughts in a secure, private space designed for reflection and growth
-- ** Analytics & Insights**: Understand emotional journey with detailed analytics and personalized insights
-- ** 3D Animations**: Beautiful Three.js animations with floating mood orbs and interactive elements
-- ** Mood Psychology Colors**: Calming color palette based on psychological research
-- ** Secure Authentication**: JWT-based authentication with HTTP-only cookies
-- ** Responsive Design**: Fully responsive across all devices
-- ** Real-time Updates**: Live mood tracking and instant feedback
+# The Proposal is as follows:
 
-## Tech Stack
+# 1. Project Title
+MoodNest – A Digital Journal & Mood Tracker
 
-### Frontend
-- **React.js** - Modern UI library
-- **TailwindCSS** - Utility-first CSS framework
-- **Framer Motion** - Smooth animations
-- **Three.js / React-Three-Fiber** - 3D graphics and animations
-- **Recharts** - Beautiful charts and analytics
-- **Axios** - HTTP client
-- **React Router** - Client-side routing
-- **Zustand** - State management
+# 2. Problem Statement
+In today’s fast-paced world, people are constantly juggling work, studies, and personal
+life often without taking time to reflect on how they truly feel. Many struggle to maintain
+emotional balance or mental clarity because they don’t have a safe and structured
+space to express their thoughts.
+For example, someone might feel anxious after a stressful day at work but have no easy
+way to record or understand what triggered that feeling. Over time, this lack of
+self-reflection can lead to burnout or emotional exhaustion.
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **Prisma ORM** - Database toolkit
-- **PostgreSQL** - Database (via Supabase)
-- **JWT** - Authentication
-- **Bcrypt** - Password hashing
-- **Express Validator** - Input validation
+# 3. System Architecture
+The overall system follows a three-tier architecture:
+Frontend → Backend (API) → Database
+This structure separates the user interface, server logic, and data storage, ensuring that
+the system remains scalable, secure, and easy to maintain.
 
-### Deployment
-- **Frontend**: Vercel
-- **Backend**: Render
-- **Database**: Supabase (PostgreSQL)
+● Frontend (Client Side) - The frontend is the user-facing part of the application
+where users interact with the system. Built with React.js, it provides a smooth
+and responsive single-page experience.
 
-##  Getting Started
+● Backend (Server Side) - The backend acts as the brain of the application — it
+handles user requests, applies business logic, interacts with the database, and
+sends responses back to the frontend.Built with Node.js + Express
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-- PostgreSQL database (or Supabase account)
+● Database - The database stores all data — such as user information, journal
+entries, and mood logs.Stored in PostgreSQL (relational) via Prisma ORM.
 
-### Installation
+● Authentication - This ensures that only authorized users can access personal
+journals.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/moodnest.git
-   cd moodnest
-   ```
+# 4. Key Features
+● Authentication & Authorization - Users can securely sign up and log in using their
+email and password. JSON Web Tokens (JWT) are used to maintain stateless sessions.
+The system supports two user roles — User (for journaling) and Admin (for managing
+users, entries, or reviewing analytics)
 
-2. **Setup Backend**
-   ```bash
-   cd backend
-   npm install
-   
-   # Copy environment variables
-   cp .env.example .env
-   
-   # Edit .env with your database URL and JWT secret
-   # DATABASE_URL="postgresql://username:password@localhost:5432/moodnest"
-   # JWT_SECRET="your-super-secret-jwt-key"
-   
-   # Generate Prisma client and push schema
-   npx prisma generate
-   npx prisma db push
-   
-   # Start development server
-   npm run dev
-   ```
+● CRUD Operations -
+1. Create Journal Entries - Users can write and save daily journal entries with
+optional titles, moods, and tags to reflect their thoughts and experiences.
 
-3. **Setup Frontend**
-   ```bash
-   cd ../frontend
-   npm install
-   
-   # Start development server
-   npm run dev
-   ```
+2. Read / View Entries - Users can view all their journal entries in
+chronological order or filter by mood/date.
 
-4. **Open your browser**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
+3. Update Entries - Users can edit their previous journal entries anytime for
+corrections or updates.
 
-## 📁 Project Structure
+4. Delete Entries - Users can delete specific journal entries when they wish
+to remove them permanently.
 
-```
-moodnest/
-├── frontend/                 # React frontend
-│   ├── src/
-│   │   ├── components/      # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── context/        # React contexts
-│   │   ├── hooks/          # Custom hooks
-│   │   ├── three/          # 3D components
-│   │   ├── styles/         # CSS styles
-│   │   └── utils/          # Utility functions
-│   ├── public/             # Static assets
-│   └── package.json
-├── backend/                 # Node.js backend
-│   ├── src/
-│   │   ├── controllers/    # Route controllers
-│   │   ├── routes/         # API routes
-│   │   ├── middleware/     # Custom middleware
-│   │   ├── prisma/         # Database schema
-│   │   └── utils/          # Utility functions
-│   └── package.json
-└── README.md
-```
+● Mood Tracking & Analytics -
+1. Daily Mood Input - Alongside journaling, users can select their mood
+from preset options (e.g., Happy, Calm, Tired, Anxious, Focused).
 
-##  Color Palette (Mood Psychology Based)
+2. Mood History Visualization - A graph that displays trends of emotional
+states over time, helping users identify patterns in their well-being.
 
-- **Calm Blue** (#A4C2F4) - Reduces stress and promotes tranquility
-- **Soft Purple** (#CDB4FF) - Encourages reflection and creativity
-- **Mint Green** (#C1F2D5) - Represents healing and positivity
-- **Warm Yellow** (#FFE680) - Inspires optimism and energy
-- **Deep Navy** (#1A1F3A) - Provides grounding and contrast
+3. Weekly & Monthly Insights - The app will summarize the mood and
+journal data to show how often certain emotions appear, providing helpful
+insights for self-awareness.
 
-##  API Endpoints
+● Frontend Routing - Pages: Home Page, Signup Page, Login Page,Dashboard
+Page, Entry Page, Journal Details Page, Mood Insights Page, Profile Page.
 
-### Authentication
-- `POST /api/auth/signup` - User registration
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-- `GET /api/auth/me` - Get current user
+● Searching & Filtering -
+1. Keyword Search - Users can quickly search journal entries using
+keywords, moods, or tags.
 
-### Journal Entries
-- `GET /api/entries` - Get user entries (with pagination, search, filter)
-- `GET /api/entries/:id` - Get specific entry
-- `POST /api/entries` - Create new entry
-- `PUT /api/entries/:id` - Update entry
-- `DELETE /api/entries/:id` - Delete entry
+2. Date-based Filtering - Filter journal entries by specific date ranges to
+review past reflections or progress.
 
-### Mood Tracking
-- `GET /api/mood` - Get user moods
-- `POST /api/mood` - Log new mood
-- `GET /api/mood/summary` - Get mood analytics and insights
+● Sorting -
 
-## Deployment
+1. It allows users to sort their journal entries by various parameters for better
+organization and review. Entries can be sorted by date (newest or oldest
+first), or title.
 
-### Frontend (Vercel)
-1. Connect your GitHub repository to Vercel
-2. Set build command: `npm run build`
-3. Set output directory: `dist`
-4. Deploy automatically on push to main branch
+● Pagination -
 
-### Backend (Render)
-1. Connect your GitHub repository to Render
-2. Use the provided `render.yaml` configuration
-3. Set environment variables in Render dashboard
-4. Deploy automatically on push to main branch
+1. The application implements pagination by displaying journal entries in sets
+of 15 per page. This approach ensures that users can browse their
+journals efficiently without overwhelming the interface or slowing down
+performance.
 
-### Database (Supabase)
-1. Create a new Supabase project
-2. Copy the PostgreSQL connection string
-3. Update `DATABASE_URL` in your environment variables
-4. Run `npx prisma db push` to create tables
+● Hosting & Deployment - The entire application is deployed online: Frontend via
+Vercel, Backend via Render, and Database via Supabase.
 
----
+# 5. Tech Stack
+
+Frontend React.js, React Router, Axios, TailwindCSS
+
+Backend Node.js, Express.js
+
+Database PostgreSQL (via Prisma ORM)
+
+Authentication JWT (JSON Web Token)
+
+Hosting Vercel (Frontend), Render(Backend)
+
+# 6. API Overview
+Endpoint Method Description Access
+
+/api/auth/signup
+
+POST Register new user Public
+
+/api/auth/login
+POST Authenticate user Public
+
+/api/entries GET Get all journal entries of a user Authenticated
+/api/entries/:id
+GET Get a specific journal entry by ID Authenticated
+
+/api/entries POST Create a new journal entry Authenticated
+/api/entries/:id
+PUT Update an existing journal entry Authenticated
+
+/api/entries/:id
+DELETE Delete a journal entry Authenticated
 
 **Made with ❤️ for mental wellness and self-reflection**
